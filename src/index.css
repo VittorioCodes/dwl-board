@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+.luxurious-glow:not(.absolute):not(.fixed):not(.sticky) {
+  position: relative;
+}
+
+.luxurious-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(255, 230, 150, 0.8) 0%,
+    rgba(212, 175, 55, 0.4) 30%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: source-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
